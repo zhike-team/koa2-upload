@@ -5,7 +5,7 @@
 ## 安装
 
 ```sh
-npm i --save koa2-upload
+npm i --save @zhike/koa2-upload
 ```
 
 ## 使用方法
