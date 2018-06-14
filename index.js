@@ -14,7 +14,7 @@ function multipartHandle(ctx, form, options) {
         if (options.stream) {
           resolve({
             fields,
-            streams
+            files: streams
           });
         } else {
           resolve({
@@ -32,17 +32,21 @@ function multipartHandle(ctx, form, options) {
         if (!part.filename) {
           form.handlePart(part);
         } else {
-          streams[part.name] = new Readable();
-          streams[part.name]._read = function () { };
-          streams[part.name].filename = part.filename;
-          streams[part.name].type = part.mime;
+          streams[part.name] = {
+            stream: new Readable(),
+            filename: part.filename,
+            type: part.mime,
+            size: 0
+          }
+          streams[part.name].stream._read = function () {};
 
           part.on('data', function (chunk) {
-            streams[part.name].push(chunk);
+            streams[part.name].size += chunk.length;
+            streams[part.name].stream.push(chunk);
           });
 
           part.on('end', function () {
-            streams[part.name].push(null);
+            streams[part.name].stream.push(null);
           });
         }
       }

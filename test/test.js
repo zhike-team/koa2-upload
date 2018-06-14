@@ -6,10 +6,10 @@ const fileHandler = require('../index');
 
 const app = new Koa();
 app.use(fileHandler({
-  autoDelete: true
+  stream: true
 }));
 app.use(async (ctx) => {
-  ctx.body = ctx.files.myFile.name;
+  ctx.body = ctx.files;
 });
 
 app.listen(3000);
