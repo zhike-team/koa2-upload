@@ -27,4 +27,5 @@ npm i --save @zhike/koa2-upload
 ```
 ### Options
 
-  autoDelete: 默认值 false ，设置为true在请求结束之后会删除本地缓存文件
+  * stream: 默认值 false ， 设置为true会将上传文件流挂载在ctx.streams中
+  * autoDelete: 默认值 false ，设置为true在请求结束之后会删除本地缓存文件
