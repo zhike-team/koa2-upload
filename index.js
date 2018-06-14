@@ -34,7 +34,7 @@ function multipartHandle(ctx, form, options) {
         } else {
           streams[part.name] = {
             stream: new Readable(),
-            filename: part.filename,
+            name: part.filename,
             type: part.mime,
             size: 0
           }
