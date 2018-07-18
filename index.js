@@ -25,6 +25,11 @@ function multipartHandle(ctx, form, options) {
       }
     });
 
+    form.on('file', function (name, file) {
+      //rename the incoming file to the file's name
+      fs.rename(file.path, form.uploadDir + "/" + file.name);
+    });
+    
     form.onPart = function (part) {
       if (!options.stream) {
         form.handlePart(part);
