@@ -27,9 +27,10 @@ function multipartHandle(ctx, form, options) {
 
     form.on('file', function (name, file) {
       //rename the incoming file to the file's name
-      fs.rename(file.path, form.uploadDir + "/" + file.name);
+      fs.renameSync(file.path, form.uploadDir + "/" + file.name);
+      file.path = form.uploadDir + "/" + file.name;
     });
-    
+
     form.onPart = function (part) {
       if (!options.stream) {
         form.handlePart(part);
@@ -69,6 +70,12 @@ module.exports = function (options = {}) {
   }
 
   options = Object.assign(defaults, options);
+
+  if (typeof options.uploadDir === 'string') {
+    if (options.uploadDir.charAt(options.uploadDir.length - 1) === '/') {
+      options.uploadDir = options.uploadDir.substr(0, options.uploadDir.length - 1);
+    }
+  }
 
   return async (ctx, next) => {
     const form = new formidable.IncomingForm();
