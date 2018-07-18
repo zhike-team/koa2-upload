@@ -30,3 +30,7 @@ npm i --save @zhike/koa2-upload
   * stream: 默认值 false ， 设置为true会将上传文件流挂载在ctx.files[key].stream中
   
   * autoDelete: 默认值 false ，设置为true在请求结束之后会删除本地缓存文件
+
+  * uploadDir: 设置为文件保存路径
+
+  * maxFileSize: 设置上传文件最大字节数
