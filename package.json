@@ -27,7 +27,7 @@
     "formidable": "^1.2.1"
   },
   "devDependencies": {
-    "axios-upload": "^1.0.5",
+    "axios-upload": "^1.0.9",
     "koa": "^2.5.1",
     "mocha": "^5.2.0"
   }
