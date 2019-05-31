@@ -1,6 +1,6 @@
 {
   "name": "@zhike/koa2-upload",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A middleware for koa2 to handle file upload based on formidable",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "formidable": "^1.2.1"
   },
   "devDependencies": {
-    "axios-upload": "^1.0.9",
+    "@zhike/axios-upload": "^1.0.8",
     "koa": "^2.5.1",
     "mocha": "^5.2.0"
   }
