@@ -29,6 +29,6 @@
   "devDependencies": {
     "@zhike/axios-upload": "^1.0.8",
     "koa": "^2.5.1",
-    "mocha": "^5.2.0"
+    "mocha": "^10.2.0"
   }
 }
